@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "genai-prompt-sanitization"
+version = "0.1.0"
+description = "This repository provides examples of using Firewall for AI APIs to sanitize GenAI prompts for popular LLM services and frameworks using Python."
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+apify-client = "^1.7.0"
+chromadb = "^0.5.3"
+langchain = "^0.2.6"
+langchain-community = "^0.2.6"
+openai = "^1.35.10"
+python-dotenv = "^1.0.1"
+streamlit = "^1.36.0"
+tiktoken = "^0.7.0"
+anthropic = "^0.30.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
