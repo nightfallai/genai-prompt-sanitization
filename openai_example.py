@@ -17,12 +17,16 @@ nightfall = (
 )  # By default Nightfall will read the NIGHTFALL_API_KEY environment variable
 
 # The message you intend to send
-user_input = "The customer said: 'My credit card number is 4916-6734-7572-5015 and the card is getting declined. My transaction number is 4916-6734-7572-5015.' How should I respond to the customer?"
+user_input = """
+The customer said: 'My credit card number is 4916-6734-7572-5015
+and the card is getting declined. My transaction number is
+4916-6734-7572-5015.' How should I respond to the customer?"""
 payload = [user_input]
 
 print("\nHere's the user's question before sanitization:\n", user_input)
 
-# Define an inline detection rule that looks for Likely Credit Card Numbers and redacts them
+# Define an inline detection rule that looks for Likely Credit Card Numbers
+# and redacts them
 detection_rule = [
     DetectionRule(
         [
@@ -45,12 +49,14 @@ detection_rule = [
 ]
 
 # Send the message to Nightfall to scan it for sensitive data
-# Nightfall returns the sensitive findings and a copy of your input payload with sensitive data redacted
+# Nightfall returns the sensitive findings and a copy of your input payload with
+# sensitive data redacted
 findings, redacted_payload = nightfall.scan_text(
     payload, detection_rules=detection_rule
 )
 
-# If the message has sensitive data, use the redacted version, otherwise use the original message
+# If the message has sensitive data, use the redacted version, otherwise use the
+# original message
 if redacted_payload[0]:
     user_input_sanitized = redacted_payload[0]
 else:
