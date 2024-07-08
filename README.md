@@ -26,7 +26,11 @@ The repository includes three examples:
 
 Ensure you have the following packages installed:
 
-pip install openai anthropic langchain nightfall python-dotenv pydantic
+    pip install -r requirements.txt 
+
+or
+
+    poetry install
 
 ## Contributing
 Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements.
