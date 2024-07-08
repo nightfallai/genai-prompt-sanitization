@@ -1,13 +1,15 @@
 import os
-from dotenv import load_dotenv
-from nightfall import Confidence, DetectionRule, Detector, RedactionConfig, MaskConfig, Nightfall
 from typing import Dict, List
+
+from dotenv import load_dotenv
 from langchain.chains.base import Chain
+from langchain.prompts import PromptTemplate
 from langchain.schema.language_model import BaseLanguageModel
 from langchain.schema.prompt_template import BasePromptTemplate
-from langchain.prompts import PromptTemplate
+from langchain.schema.runnable import RunnablePassthrough, RunnableSequence
 from langchain_anthropic import ChatAnthropic
-from langchain.schema.runnable import RunnableSequence, RunnablePassthrough
+from nightfall import (Confidence, DetectionRule, Detector, MaskConfig,
+                       Nightfall, RedactionConfig)
 from pydantic import Field
 
 # Load environment variables

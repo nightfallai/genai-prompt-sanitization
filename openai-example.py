@@ -1,5 +1,7 @@
 import os
-from nightfall import Confidence, DetectionRule, Detector, RedactionConfig, MaskConfig, Nightfall
+
+from nightfall import (Confidence, DetectionRule, Detector, MaskConfig,
+                       Nightfall, RedactionConfig)
 from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
