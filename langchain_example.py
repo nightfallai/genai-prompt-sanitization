@@ -1,12 +1,9 @@
-import os
 from typing import Dict, List
 
 from dotenv import load_dotenv
 from langchain.chains.base import Chain
 from langchain.prompts import PromptTemplate
-from langchain.schema.language_model import BaseLanguageModel
-from langchain.schema.prompt_template import BasePromptTemplate
-from langchain.schema.runnable import RunnablePassthrough, RunnableSequence
+from langchain.schema.runnable import RunnablePassthrough
 from langchain_anthropic import ChatAnthropic
 from nightfall import (
     Confidence,
@@ -16,7 +13,6 @@ from nightfall import (
     Nightfall,
     RedactionConfig,
 )
-from pydantic import Field
 
 # Load environment variables
 load_dotenv()
@@ -63,7 +59,7 @@ class NightfallSanitizationChain(Chain):
         text = inputs[self.input_key]
         payload = [text]
         try:
-            findings, redacted_payload = nightfall.scan_text(
+            _, redacted_payload = nightfall.scan_text(
                 payload, detection_rules=detection_rule
             )
             sanitized_text = redacted_payload[0] if redacted_payload[0] else text
@@ -100,6 +96,6 @@ customer_input = (
 print(f"\ncustomer input:\n {customer_input}")
 try:
     response = full_chain.invoke({"input": customer_input})
-    print("\model reponse:\n", response.content)
+    print("\nmodel reponse:\n", response.content)
 except Exception as e:
     print("An error occurred:", e)
