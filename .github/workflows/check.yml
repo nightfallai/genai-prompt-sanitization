@@ -1,0 +1,28 @@
+name: check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: "actions/checkout@v4"
+      - name: install poetry
+        run: pip install poetry
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'poetry'
+      - name: install
+        run: poetry install --with=dev
+      - name: check imports
+        run:  poetry run isort --check .
+      - name: check formatting
+        run:  poetry run black --check .
+      - name: run linter
+        run:  poetry run pylint .
