@@ -1,0 +1,9 @@
+apify-client
+chromadb
+langchain
+langchain_community
+openai
+python-dotenv
+streamlit
+tiktoken
+anthropic
