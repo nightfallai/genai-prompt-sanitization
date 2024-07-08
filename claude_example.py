@@ -1,4 +1,5 @@
 import os
+import sys
 
 from anthropic import Anthropic
 from dotenv import load_dotenv
@@ -24,15 +25,20 @@ try:
 
 except Exception as e:
     print(f"Error initializing clients: {e}")
-    exit(1)
+    sys.exit(1)
 
-# The message you intend to send. Notice 1) the credit card number in the message and 2) conincidently the transaction number is the same as the credit card number. It's not senstive. Will the ML model get confused and redact it too?
-user_input = "The customer said: 'My credit card number is 4916-6734-7572-5015 and the card is getting declined. My transaction number is 4916-6734-7572-5015.' How should I respond to the customer?"
+# The message you intend to send. Notice 1) the credit card number in the message and
+# 2) conincidently the transaction number is the same as the credit card number. It's
+# not senstive. Will the ML model get confused and redact it too?
+user_input = """The customer said: 'My credit card number is 4916-6734-7572-5015
+and the card is getting declined. My transaction number is 4916-6734-7572-5015.'
+How should I respond to the customer?"""
 payload = [user_input]
 
 print("\nHere's the user's question before sanitization:\n", user_input)
 
-# Define an inline detection rule that looks for Likely Credit Card Numbers and redacts them
+# Define an inline detection rule that looks for Likely Credit Card Numbers and
+# redacts them
 detection_rule = [
     DetectionRule(
         [
@@ -60,14 +66,17 @@ try:
         payload, detection_rules=detection_rule
     )
 
-    # If the message has sensitive data, use the redacted version, otherwise use the original message
+    # If the message has sensitive data, use the redacted version, otherwise use the
+    # original message
     user_input_sanitized = redacted_payload[0] if redacted_payload[0] else payload[0]
 
     print("\nHere's the user's question after sanitization:\n", user_input_sanitized)
 
-    # Define your prompt, ensuring it starts with "\n\nHuman:" and ending with "\n\nAssistant:"
+    # Define your prompt, ensuring it starts with "\n\nHuman:"
+    # and ending with "\n\nAssistant:"
     prompt = (
-        "\nYou are a level 1 support bot. Your role is to assist users with common issues and provide helpful information. \n\nHuman: "
+        "\nYou are a level 1 support bot. Your role is to assist users "
+        + "with common issues and provide helpful information. \n\nHuman: "
         + user_input_sanitized
         + "\n\nAssistant:"
     )
