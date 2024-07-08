@@ -1,7 +1,9 @@
 import os
-from dotenv import load_dotenv
-from nightfall import Confidence, DetectionRule, Detector, RedactionConfig, MaskConfig, Nightfall
+
 from anthropic import Anthropic
+from dotenv import load_dotenv
+from nightfall import (Confidence, DetectionRule, Detector, MaskConfig,
+                       Nightfall, RedactionConfig)
 
 # Load environment variables
 load_dotenv()
