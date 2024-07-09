@@ -55,6 +55,7 @@ class NightfallSanitizationChain(Chain):
     def output_keys(self) -> List[str]:
         return [self.output_key]
 
+    # pylint: disable-next=arguments-differ
     def _call(self, inputs: Dict[str, str]) -> Dict[str, str]:
         text = inputs[self.input_key]
         payload = [text]
@@ -64,7 +65,7 @@ class NightfallSanitizationChain(Chain):
             )
             sanitized_text = redacted_payload[0] if redacted_payload[0] else text
             print(f"\nsanitized input:\n {sanitized_text}")
-        except Exception as e:
+        except Exception as e:  # pylint: disable=broad-exception-caught
             print(f"Error in sanitizing input: {e}")
             sanitized_text = text
         return {self.output_key: sanitized_text}
@@ -97,5 +98,5 @@ print(f"\ncustomer input:\n {customer_input}")
 try:
     response = full_chain.invoke({"input": customer_input})
     print("\nmodel reponse:\n", response.content)
-except Exception as e:
+except Exception as e:  # pylint: disable=broad-exception-caught
     print("An error occurred:", e)
