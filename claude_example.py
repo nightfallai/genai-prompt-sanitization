@@ -23,7 +23,7 @@ try:
     # Initialize the Anthropic client with your API key
     client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
-except Exception as e:
+except Exception as e:  # pylint: disable=broad-exception-caught
     print(f"Error initializing clients: {e}")
     sys.exit(1)
 
@@ -95,5 +95,5 @@ try:
         response.completion,
     )
 
-except Exception as e:
+except Exception as e:  # pylint: disable=broad-exception-caught
     print(f"An error occurred: {e}")

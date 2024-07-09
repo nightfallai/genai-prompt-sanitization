@@ -37,3 +37,17 @@ Feel free to submit issues or pull requests if you find any bugs or have suggest
 
 ## License
 This project is licensed under the Apache 2 license.
+
+## Formatting and style
+
+To sort imports run:
+
+    poetry run isort .
+
+To format code run:
+
+    poetry run black .
+
+To check code style run:
+
+    poetry run pylint .
