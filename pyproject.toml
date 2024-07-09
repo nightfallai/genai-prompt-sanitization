@@ -16,7 +16,7 @@ python-dotenv = "^1.0.1"
 streamlit = "^1.36.0"
 tiktoken = "^0.7.0"
 anthropic = "^0.30.1"
-
+nightfall = { git = "https://github.com/nightfallai/nightfall-python-sdk.git" }
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.2.5"
@@ -27,3 +27,22 @@ isort = "^5.13.2"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 package-mode = false
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint."messages control"]
+disable = [
+    "duplicate-code",
+    "invalid-name",
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+]
