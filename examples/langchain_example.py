@@ -14,13 +14,13 @@ from nightfall import (
     RedactionConfig,
 )
 
-# Load environment variables
+# Load environment variables and initialize Nightfall client
+# To run this script you must have a NIGHTFALL_API_KEY
 load_dotenv()
+nightfall_client = Nightfall()
 
-# Initialize Nightfall client
-nightfall = Nightfall()
-
-# Define Nightfall detection rule
+# Define an inline Nightfall detection rule that looks for 
+# Credit Card Numbers and redacts them with a string of "X"s
 detection_rule = [
     DetectionRule(
         [
@@ -57,17 +57,13 @@ class NightfallSanitizationChain(Chain):
 
     # pylint: disable-next=arguments-differ
     def _call(self, inputs: Dict[str, str]) -> Dict[str, str]:
-        text = inputs[self.input_key]
+        text = inputs.get(self.input_key)
         payload = [text]
-        try:
-            _, redacted_payload = nightfall.scan_text(
-                payload, detection_rules=detection_rule
-            )
-            sanitized_text = redacted_payload[0] if redacted_payload[0] else text
-            print(f"\nsanitized input:\n {sanitized_text}")
-        except Exception as exc:  # pylint: disable=broad-exception-caught
-            print(f"Error in sanitizing input: {exc}")
-            sanitized_text = text
+        _, redacted_payload = nightfall_client.scan_text(
+            payload, detection_rules=detection_rule
+        )
+        sanitized_text = redacted_payload[0] if redacted_payload[0] else text
+        print(f"\nsanitized input:\n {sanitized_text}")
         return {self.output_key: sanitized_text}
 
 
@@ -95,8 +91,6 @@ customer_input = (
     "My credit card number is 4916-6734-7572-5015, and the card is getting declined."
 )
 print(f"\ncustomer input:\n {customer_input}")
-try:
-    response = full_chain.invoke({"input": customer_input})
-    print("\nmodel reponse:\n", response.content)
-except Exception as e:  # pylint: disable=broad-exception-caught
-    print("An error occurred:", e)
+
+response = full_chain.invoke({"input": customer_input})
+print("\nmodel reponse:\n", response.content)
