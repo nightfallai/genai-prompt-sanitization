@@ -1,0 +1,18 @@
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint."messages control"]
+disable = [
+    "duplicate-code",
+    "invalid-name",
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+]
