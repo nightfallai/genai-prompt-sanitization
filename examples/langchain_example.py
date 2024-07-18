@@ -65,8 +65,8 @@ class NightfallSanitizationChain(Chain):
             )
             sanitized_text = redacted_payload[0] if redacted_payload[0] else text
             print(f"\nsanitized input:\n {sanitized_text}")
-        except Exception as e:  # pylint: disable=broad-exception-caught
-            print(f"Error in sanitizing input: {e}")
+        except Exception as exc:  # pylint: disable=broad-exception-caught
+            print(f"Error in sanitizing input: {exc}")
             sanitized_text = text
         return {self.output_key: sanitized_text}
 

@@ -12,17 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: "actions/checkout@v4"
-      - name: install poetry
-        run: pip install poetry
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'poetry'
+          cache: 'pip'
       - name: install
-        run: poetry install --with=dev
+        run: pip install -r requirements.txt
       - name: check imports
-        run:  poetry run isort --check .
+        run:  isort --check .
       - name: check formatting
-        run:  poetry run black --check .
+        run:  black --check .
       - name: run linter
-        run:  poetry run pylint .
+        run:  pylint --recursive y .
