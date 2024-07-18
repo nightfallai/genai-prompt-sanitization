@@ -3,14 +3,8 @@ import sys
 
 from anthropic import Anthropic
 from dotenv import load_dotenv
-from nightfall import (
-    Confidence,
-    DetectionRule,
-    Detector,
-    MaskConfig,
-    Nightfall,
-    RedactionConfig,
-)
+from nightfall import (Confidence, DetectionRule, Detector, MaskConfig,
+                       Nightfall, RedactionConfig)
 
 # Load environment variables
 load_dotenv()

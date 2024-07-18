@@ -5,14 +5,8 @@ from langchain.chains.base import Chain
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain_anthropic import ChatAnthropic
-from nightfall import (
-    Confidence,
-    DetectionRule,
-    Detector,
-    MaskConfig,
-    Nightfall,
-    RedactionConfig,
-)
+from nightfall import (Confidence, DetectionRule, Detector, MaskConfig,
+                       Nightfall, RedactionConfig)
 
 # Load environment variables
 load_dotenv()
