@@ -19,7 +19,7 @@ from nightfall import (
 load_dotenv()
 nightfall_client = Nightfall()
 
-# Define an inline Nightfall detection rule that looks for 
+# Define an inline Nightfall detection rule that looks for
 # Credit Card Numbers and redacts them with a string of "X"s
 detection_rule = [
     DetectionRule(

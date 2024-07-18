@@ -26,7 +26,7 @@ payload = [user_input]
 
 print(f"\nHere's the user's question before sanitization:\n {user_input}")
 
-# Define an inline Nightfall detection rule that looks for 
+# Define an inline Nightfall detection rule that looks for
 # Credit Card Numbers and redacts them with a string of "X"s
 detection_rule = [
     DetectionRule(
@@ -79,4 +79,6 @@ response = anthropic_client.completions.create(
     top_p=1.0,
 )
 
-print(f"\nHere's a generated response you can send the customer:\n {response.completion}")
+print(
+    f"\nHere's a generated response you can send the customer:\n {response.completion}"
+)

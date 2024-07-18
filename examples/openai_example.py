@@ -16,14 +16,14 @@ nightfall_client = Nightfall()
 openai_client = OpenAI()
 
 # The prompt you intend to send to OpenAI
-user_input = """The customer said: 'My credit card number is 
-4916-6734-7572-5015 and the card is getting declined.' 
+user_input = """The customer said: 'My credit card number is
+ 4916-6734-7572-5015 and the card is getting declined.' 
 How should I respond to the customer?"""
 payload = [user_input]
 
 print(f"\nHere's the user's question before sanitization:\n {user_input}")
 
-# Define an inline Nightfall detection rule that looks for 
+# Define an inline Nightfall detection rule that looks for
 # Credit Card Numbers and redacts them with a string of "X"s
 detection_rule = [
     DetectionRule(
@@ -70,4 +70,6 @@ completion = openai_client.chat.completions.create(
 )
 
 generated_response = completion.choices[0].message.content
-print(f"\nHere's a generated response you can send the customer:\n {generated_response}")
+print(
+    f"\nHere's a generated response you can send the customer:\n {generated_response}"
+)
