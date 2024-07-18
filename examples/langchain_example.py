@@ -5,8 +5,14 @@ from langchain.chains.base import Chain
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain_anthropic import ChatAnthropic
-from nightfall import (Confidence, DetectionRule, Detector, MaskConfig,
-                       Nightfall, RedactionConfig)
+from nightfall import (
+    Confidence,
+    DetectionRule,
+    Detector,
+    MaskConfig,
+    Nightfall,
+    RedactionConfig,
+)
 
 # Load environment variables
 load_dotenv()
@@ -59,8 +65,8 @@ class NightfallSanitizationChain(Chain):
             )
             sanitized_text = redacted_payload[0] if redacted_payload[0] else text
             print(f"\nsanitized input:\n {sanitized_text}")
-        except Exception as e:  # pylint: disable=broad-exception-caught
-            print(f"Error in sanitizing input: {e}")
+        except Exception as exc:  # pylint: disable=broad-exception-caught
+            print(f"Error in sanitizing input: {exc}")
             sanitized_text = text
         return {self.output_key: sanitized_text}
 
