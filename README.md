@@ -28,10 +28,6 @@ Ensure you have the following packages installed:
 
     pip install -r requirements.txt 
 
-or
-
-    poetry install
-
 ## Contributing
 Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements.
 
@@ -42,12 +38,12 @@ This project is licensed under the Apache 2 license.
 
 To sort imports run:
 
-    poetry run isort .
+    isort .
 
 To format code run:
 
-    poetry run black .
+    black .
 
 To check code style run:
 
-    poetry run pylint .
+    pylint examples/
