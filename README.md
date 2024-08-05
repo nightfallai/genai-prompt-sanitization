@@ -1,19 +1,16 @@
 # Firewall for AI APIs: Sanitizing GenAI Prompts 
 
 ## Overview
-Firewall for AI prevents sensitive data disclosure in GenAI applications, analytics, and data pipelines. It sanitizes PII, PCI, banking info, PHI, and intellectual property using state-of-the-art DLP models and fine-tuned LLMs, offering superior accuracy and speed over traditional regex and heuristic methods.
+Firewall for AI prevents sensitive data disclosure in GenAI applications, data pipelines, and autoamted workflows. It sanitizes PII, PCI, banking info, PHI, and intellectual property using state-of-the-art DLP models and fine-tuned LLMs, offering superior accuracy and speed over traditional regex and heuristic methods.
 
 This repository provides examples of using Firewall for AI APIs to sanitize GenAI prompts for popular LLM services and frameworks using Python.
+
+Implementing robust content filtering is crucial for data protection and regulatory compliance.
 
 ### Real-world Scenarios
 
 **Support Chatbots:** 
 Users may overshare sensitive information like credit card numbers with LLM chatbots. Filtering this content before it reaches the LLM prevents potential data breaches.
-
-**Healthcare Apps:** 
-Sensitive PHI shared in LLM-powered healthcare apps should be filtered to comply with data protection regulations and prevent unnecessary data transmission.
-
-Implementing robust content filtering is crucial for data protection and regulatory compliance.
 
 ## Examples
 
