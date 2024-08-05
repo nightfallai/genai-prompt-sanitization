@@ -1,23 +1,21 @@
 # Firewall for AI APIs: Sanitizing GenAI Prompts 
 
 ## Overview
-Firewall for AI prevents sensitive data disclosure in GenAI applications, data pipelines, and autoamted workflows. It sanitizes PII, PCI, banking info, PHI, and intellectual property using state-of-the-art DLP models and fine-tuned LLMs, offering superior accuracy and speed over traditional regex and heuristic methods.
+Firewall for AI prevents sensitive data disclosure in GenAI applications, data pipelines, and automated workflows. It sanitizes PII, PCI, banking information, PHI, and intellectual property using state-of-the-art DLP models and fine-tuned LLMs, offering superior accuracy and speed over traditional regex and heuristic methods.
 
-This repository provides examples of using Firewall for AI APIs to sanitize GenAI prompts for popular LLM services and frameworks using Python.
+This repository provides examples of using Firewall for AI APIs to sanitize GenAI prompts for popular LLM services and frameworks using Python. Implementing robust content filtering is crucial for data protection and regulatory compliance.
 
-Implementing robust content filtering is crucial for data protection and regulatory compliance.
+## Real-world Scenarios
+In each of the following cases, users tend to overshare, and this information must be removed to prevent sensitive data disclosure. This readme introduces prompt sanitization sample code.
 
-### Real-world Scenario
-Each of the following cases, users tend to overshare and this information must be removed to prevent sensitive data disclosure. 
+# Chatbots:
+Users may include sensitive personal information like addresses, credit card numbers, and bank account numbers in chatbot interactions.
 
-**Chatbots:** 
-Users may overshare sensitive information like credit card numbers, bank account numbers, healthcare information with LLM chatbots. 
+# RAG Datasets:
+Resolved support tickets used to create RAG datasets may contain sensitive images like driver's licenses, passports, and credit cards.
 
-**RAG Datasets:** 
-Resolved support tickets used to create RAG datasets may contain sensitive information like images of driver's licenses, passports, and credit cards.
-
-**Healthcare Applications:** 
-Health provider applications using LLMs to automate workflows will often include sensitive health information.
+# Healthcare Applications:
+User input to healthcare LLM-based applications often includes sensitive health information.
 
 ## Examples
 
