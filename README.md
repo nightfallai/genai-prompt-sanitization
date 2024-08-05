@@ -7,10 +7,17 @@ This repository provides examples of using Firewall for AI APIs to sanitize GenA
 
 Implementing robust content filtering is crucial for data protection and regulatory compliance.
 
-### Real-world Scenarios
+### Real-world Scenario
+Each of the following cases, users tend to overshare and this information must be removed to prevent sensitive data disclosure. 
 
-**Support Chatbots:** 
-Users may overshare sensitive information like credit card numbers with LLM chatbots. Filtering this content before it reaches the LLM prevents potential data breaches.
+**Chatbots:** 
+Users may overshare sensitive information like credit card numbers, bank account numbers, healthcare information with LLM chatbots. 
+
+**RAG Datasets:** 
+Resolved support tickets used to create RAG datasets may contain sensitive information like images of driver's licenses, passports, and credit cards.
+
+**Healthcare Applications:** 
+Health provider applications using LLMs to automate workflows will often include sensitive health information.
 
 ## Examples
 
