@@ -1,13 +1,17 @@
-# Firewall for AI APIs: Sanitizing GenAI Prompts 
+# Firewall for AI API Sample Code
 
 ## Overview
-Firewall for AI prevents sensitive data disclosure in GenAI applications, data pipelines, and automated workflows. It sanitizes PII, PCI, banking information, PHI, and intellectual property using state-of-the-art DLP models and fine-tuned LLMs. This results in up to twice the precision and recall compared to leading solutions like Google DLP, Microsoft Presidio, and AWS Guardrails.
 
-This repository provides examples of using Firewall for AI APIs to sanitize GenAI prompts for popular LLM services and frameworks using Python. 
+Firewall for AI enables rapid identification and anonymization to protect sensitive data from disclosure through GenAI prompts, models, analytics pipelines, and automated workflows.
 
-## Examples
+## Key Features
 
-The repository includes three examples:
+- **Comprehensive Coverage:** Supports over 100 entity types in text, files, and images, including names, addresses, Social Security numbers, credit card details, credit card images, banking account numbers, and protected health information. For a full list, refer to the [detector glossary](https://help.nightfall.ai/nightfall-ai/detection-engine/nightfall-detector-glossary).
+- **Enhanced Accuracy:** Delivers up to twice the precision and recall compared to leading solutions like Google DLP, Microsoft Presidio, and AWS Guardrails.
+
+## Repository Contents
+
+This repository contains sample code demonstrating how to use Firewall for AI APIs to sanitize GenAI prompts within popular LLM services and frameworks using Python.
 1. **OpenAI ChatGPT**
 2. **Anthropic Claude**
 3. **LangChain / Anthropic Claude**
