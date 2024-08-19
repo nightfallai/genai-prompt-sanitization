@@ -16,11 +16,9 @@ nightfall_client = Nightfall()
 anthropic_client = Anthropic()
 
 
-# The message you intend to send. Notice 1) the credit card number in the message and
-# 2) conincidently the transaction number is the same as the credit card number. It's
-# not senstive. Will the ML model get confused and redact it too?
+# The message you intend to send.
 user_input = """The customer said: 'My credit card number is 4916-6734-7572-5015
-and the card is getting declined. My transaction code is 4916-6734-7572-5015.'
+and the card is getting declined.'
 How should I respond to the customer?"""
 payload = [user_input]
 
