@@ -7,7 +7,7 @@ Firewall for AI enables rapid identification and anonymization to protect sensit
 ## Key Features
 
 - **Comprehensive Coverage:** Supports over 100 entity types in text, files, and images, including names, addresses, Social Security numbers, credit card details, credit card images, banking account numbers, and protected health information. For a full list, refer to the [detector glossary](https://help.nightfall.ai/nightfall-ai/detection-engine/nightfall-detector-glossary).
-- **Enhanced Accuracy:** Delivers up to twice the precision and recall compared to leading solutions like Google DLP, Microsoft Presidio, and AWS Guardrails.
+- **Enhanced Accuracy:** Delivers up to twice the precision and recall compared to leading solutions like Google DLP, Microsoft Presidio, and AWS Guardrails. Benchmarks are available upon request at [support@nightfall.ai](mailto:support@nightfall.ai).
 
 ## Repository Contents
 
