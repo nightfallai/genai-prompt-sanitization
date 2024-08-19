@@ -22,7 +22,7 @@ This repository contains sample code demonstrating how to use Firewall for AI AP
 
 1. If you still need to get a Nightfall account, get one [here](https://firewallforai.com).
 
-2. Create a Nightfall key and add it to your .env file. Here are some [instructions](https://help.nightfall.ai/nightfall-firewall-for-ai/key-concepts/setting-up-nightfall/creating-api-key) if you get tripped up.   
+2. Create a Nightfall key and add it to your .env file. Here are [instructions](https://help.nightfall.ai/nightfall-firewall-for-ai/key-concepts/setting-up-nightfall/creating-api-key).  
 
 2. Ensure you have the following packages installed:
 
